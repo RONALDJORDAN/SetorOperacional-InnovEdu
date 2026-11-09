@@ -4277,7 +4277,7 @@ kbd {
    -------------------------------------------------------------------------- */
 @media print {
   @page {
-    size: A4 landscape;
+    size: A4 portrait;
     margin: 0;
   }
 
@@ -4303,11 +4303,11 @@ kbd {
 
   #webslides > section {
     display: flex !important;
-    width: 100% !important;
-    height: 21cm !important;
-    min-height: 21cm !important;
+    width: 21cm !important;    /* largura A4 retrato */
+    height: 29.7cm !important; /* altura  A4 retrato */
+    min-height: 29.7cm !important;
     padding: 1.6cm 1.5cm !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     page-break-after: always;
     break-after: page;
   }
@@ -4332,7 +4332,8 @@ kbd {
   .deck-index,
   #webslides-zoomed,
   .cover-cta,
-  .closing-foot .btn {
+  .closing-foot .btn,
+  .pdf-overlay {
     display: none !important;
   }
 
@@ -4414,8 +4415,607 @@ kbd {
 }
 
 /* --------------------------------------------------------------------------
-   27. TRANSIÇÕES DE TELA — Animação fluida (inspirada no WebSlides-latest)
+   OVERLAY DE EXPORTAÇÃO PDF
    -------------------------------------------------------------------------- */
+.pdf-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.4rem;
+  background: rgba(8, 12, 24, .65);
+  backdrop-filter: blur(8px);
+  opacity: 1;
+  transition: opacity .25s ease;
+}
+
+.pdf-panel {
+  width: min(100%, 520px);
+  padding: 2.8rem;
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+  text-align: center;
+}
+
+.pdf-avatar {
+  width: 4.8rem;
+  height: 4.8rem;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.4rem;
+  border-radius: 14px;
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+}
+
+.pdf-avatar .icon {
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+.pdf-title {
+  margin: 0 0 .6rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pdf-desc {
+  margin: 0 0 1.8rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.pdf-desc .pdf-total {
+  font-weight: 700;
+  color: var(--brand-dark);
+}
+
+.pdf-progress-wrap {
+  width: 100%;
+  height: .8rem;
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+  margin-bottom: 1.8rem;
+}
+
+.pdf-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--magenta) 100%);
+  border-radius: 999px;
+  transition: width .3s ease;
+}
+
+.pdf-cancel {
+  margin: 0 auto;
+  padding: .9rem 1.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.pdf-cancel:hover {
+  background: var(--paper);
+  border-color: var(--line-strong);
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   26b. MODAL DE EMISSÃO (IMPRIMIR / BAIXAR PDF)
+   -------------------------------------------------------------------------- */
+.emit-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.4rem;
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(8, 12, 24, .5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.emit-modal[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.emit-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 12, 24, .5);
+}
+
+.emit-panel {
+  position: relative;
+  width: min(100%, 620px);
+  max-height: min(92vh, 820px);
+  overflow: auto;
+  padding: 3rem 2.8rem 2.6rem;
+  border-radius: 32px;
+  background: var(--white);
+  box-shadow: 0 32px 96px rgba(0, 0, 0, .35);
+  transform: translateY(14px) scale(.985);
+  transition: transform .35s cubic-bezier(.34, 1.56, .64, 1);
+  border: 1px solid rgba(15, 23, 42, .04);
+}
+
+.emit-modal[aria-hidden="false"] .emit-panel {
+  transform: none;
+}
+
+.emit-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.6rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.emit-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.emit-brand .emit-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+}
+
+.emit-brand .emit-icon .icon {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.emit-brand div {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.emit-kicker {
+  margin: 0;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+}
+
+.emit-brand h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+
+.emit-close {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.emit-close:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+.emit-close .icon {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.emit-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.emit-fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.emit-fieldset legend {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  margin: 0 0 1.1rem;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+.emit-legend-icon {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+  flex: 0 0 auto;
+}
+
+.emit-legend-icon .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.emit-fieldset--pdf-only {
+  margin-top: .2rem;
+}
+
+/* Opções tipo card */
+.emit-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all .2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.emit-option:hover {
+  border-color: var(--brand-light);
+  background: var(--brand-light);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(107, 37, 214, .06);
+}
+
+.emit-option input[type="radio"] {
+  appearance: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.emit-option input[type="radio"]:checked + label,
+.emit-option[data-checked="true"] {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  box-shadow: 0 0 0 4px rgba(107, 37, 214, .12);
+}
+
+.emit-check {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 2px solid var(--line-strong);
+  background: #fff;
+  margin-left: auto;
+  flex: 0 0 auto;
+  transition: all .2s ease;
+  position: relative;
+}
+
+.emit-option input[type="radio"]:checked ~ .emit-check {
+  border-color: var(--brand);
+  background: var(--brand);
+}
+
+.emit-option input[type="radio"]:checked ~ .emit-check::after {
+  content: '✓';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1rem;
+  height: 1rem;
+  background: #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  font-size: .75rem;
+  line-height: 1;
+}
+
+.emit-option strong {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+
+.emit-option span {
+  display: block;
+  margin-top: .15rem;
+  font-size: .88rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* Lista de páginas */
+.emit-pages {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  padding: 1.2rem 1.4rem;
+}
+
+.emit-pages-hint {
+  margin: 0 0 1rem;
+  font-size: .88rem;
+  color: var(--muted);
+}
+
+.emit-page-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .65rem;
+}
+
+.emit-page-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .75rem .6rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all .2s ease;
+  position: relative;
+}
+
+.emit-page-item:hover {
+  border-color: var(--brand-light);
+  background: var(--brand-light);
+}
+
+.emit-page-item input[type="checkbox"] {
+  appearance: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.emit-page-item input[type="checkbox"]:checked {
+  border-color: var(--brand);
+  background: var(--brand);
+}
+
+.emit-page-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: .75rem;
+  color: #fff;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* Resumo */
+.emit-summary {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+  padding: 1.2rem 1.4rem;
+  border-radius: 16px;
+  background: var(--brand-light);
+  border: 1px solid rgba(107, 37, 214, .16);
+}
+
+.emit-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.emit-summary-row--eta {
+  border-top: 1px solid rgba(107, 37, 214, .12);
+  padding-top: .7rem;
+  margin-top: .4rem;
+}
+
+.emit-summary-label {
+  font-size: .85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--brand-dark);
+}
+
+.emit-summary-value {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: right;
+  min-width: 140px;
+}
+
+.emit-summary-value--eta {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--brand-dark);
+  text-align: right;
+  min-width: 140px;
+}
+
+/* Rodapé */
+.emit-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: .9rem;
+  margin-top: .6rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--line);
+}
+
+.emit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .7rem;
+  padding: 1rem 1.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.emit-btn:hover {
+  background: var(--paper);
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+
+.emit-btn--ghost {
+  color: var(--muted);
+}
+
+.emit-btn--ghost:hover {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.emit-btn--emit {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(107, 37, 214, .3);
+}
+
+.emit-btn--emit:hover {
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(107, 37, 214, .4);
+}
+
+.emit-btn-icon {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+/* Progresso da geração de PDF (overlay temporário) */
+.emit-progress-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.4rem;
+  background: rgba(8, 12, 24, .6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.emit-progress-panel {
+  width: min(100%, 460px);
+  padding: 2.8rem;
+  border-radius: 32px;
+  background: var(--white);
+  box-shadow: 0 32px 96px rgba(0, 0, 0, .4);
+  text-align: center;
+  border: 1px solid rgba(15, 23, 42, .04);
+}
+
+.emit-progress-title {
+  margin: 0 0 .5rem;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.emit-progress-desc {
+  margin: 0 0 1.8rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.emit-progress-desc .emit-progress-current,
+.emit-progress-desc .emit-progress-total {
+  font-weight: 800;
+  color: var(--brand-dark);
+}
+
+.emit-progress-wrap {
+  width: 100%;
+  height: .9rem;
+  border-radius: 999px;
+  background: var(--paper);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.emit-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--magenta) 100%);
+  border-radius: 999px;
+  transition: width .4s ease;
+  box-shadow: 0 0 20px rgba(255, 59, 158, .45);
+}
+
+/* Esconder o overlay antigo de exportação PDF (substituído pelo modal) */
+.pdf-overlay {
+  display: none !important;
+}
 @keyframes deck-slide-in-forward {
   from {
     opacity: 0;
