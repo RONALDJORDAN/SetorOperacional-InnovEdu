@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="title desc">
+  <title id="title">InnovEdu — Planejamento Operacional Trimestral</title>
+  <desc id="desc">Capa do planejamento trimestral de operações de avaliações impressas e digitais da rede (novembro de 2026 a janeiro de 2027).</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6B25D6"/>
+      <stop offset="55%" stop-color="#6428D4"/>
+      <stop offset="100%" stop-color="#4C1BAE"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A755F7"/>
+      <stop offset="100%" stop-color="#FF3B9E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="85%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#FF3B9E" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#FF3B9E" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#FFFFFF" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect x="72" y="72" width="160" height="6" rx="3" fill="url(#accent)"/>
+  <g font-family="Poppins, Inter, Segoe UI, Arial, sans-serif">
+    <text x="72" y="132" fill="#FFC2D6" font-size="22" font-weight="700" letter-spacing="2">InnovEdu · SOLUÇÕES EDUCATIVAS</text>
+    <text x="72" y="220" fill="#FFFFFF" font-size="72" font-weight="800">Planejamento</text>
+    <text x="72" y="300" fill="#FFFFFF" font-size="72" font-weight="800">Operacional</text>
+    <text x="72" y="380" fill="#FFD1DC" font-size="72" font-weight="800">Trimestral</text>
+    <rect x="72" y="418" width="520" height="2" fill="#FFFFFF" fill-opacity="0.12"/>
+    <text x="72" y="468" fill="#F3EBFF" font-size="28" font-weight="500">Avaliações impressas e digitais · InnovEdu</text>
+    <text x="72" y="512" fill="#D9C9F0" font-size="24" font-weight="500">Novembro de 2026 · Dezembro de 2026 · Janeiro de 2027</text>
+    <g transform="translate(72,556)">
+      <rect width="210" height="36" rx="18" fill="#A755F7" fill-opacity="0.25" stroke="#A755F7" stroke-opacity="0.6"/>
+      <text x="105" y="24" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="600">17 slides · WebSlides</text>
+      <rect x="226" width="180" height="36" rx="18" fill="#FF3B9E" fill-opacity="0.18" stroke="#FF3B9E" stroke-opacity="0.5"/>
+      <text x="316" y="24" text-anchor="middle" fill="#FFD1DC" font-size="16" font-weight="600">Operação InnovEdu</text>
+    </g>
+  </g>
+  <text x="1128" y="590" text-anchor="end" fill="#B9A8D9" font-size="16" font-family="Inter, Segoe UI, Arial, sans-serif">processos-operacionais</text>
+</svg>
