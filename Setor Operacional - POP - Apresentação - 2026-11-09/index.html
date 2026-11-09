@@ -158,10 +158,6 @@
       <path d="M6 3h8l4 4v14H6z" />
       <path d="M14 3v5h5M9 12h6M9 16h6" />
     </symbol>
-    <symbol id="i-pdf" viewBox="0 0 24 24">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <path d="M14 2v6h6M14 8v6h6" />
-    </symbol>
     <symbol id="i-battery" viewBox="0 0 24 24">
       <rect x="3" y="7" width="16" height="10" rx="2" />
       <path d="M21 10v4" />
@@ -1797,16 +1793,10 @@
           <use href="#i-grid"></use>
         </svg>
       </button>
-      <button class="deck-btn" id="deck-print-btn" type="button" aria-label="Emitir apresentação"
-        title="Emitir / Imprimir (P)">
+      <button class="deck-btn" id="deck-print-btn" type="button" aria-label="Imprimir apresentação"
+        title="Imprimir (P)">
         <svg class="icon" aria-hidden="true">
           <use href="#i-printer"></use>
-        </svg>
-      </button>
-      <button class="deck-btn" id="deck-pdf-btn" type="button" aria-label="Exportar PDF"
-        title="Exportar PDF">
-        <svg class="icon" aria-hidden="true">
-          <use href="#i-pdf"></use>
         </svg>
       </button>
       <button class="deck-btn" id="deck-fullscreen-btn" type="button" aria-label="Alternar tela cheia"
@@ -1859,113 +1849,8 @@
     </div>
   </div>
 
-  <!-- ================================================================
-     MODAL DE EMISSÃO · IMPRIMIR / BAIXAR PDF
-     ================================================================ -->
-  <div class="emit-modal" id="emit-modal" aria-hidden="true" role="dialog" aria-modal="true"
-    aria-label="Emitir apresentação">
-    <div class="emit-backdrop" data-emit-close></div>
-    <div class="emit-panel">
-      <div class="emit-head">
-        <div class="emit-brand">
-          <svg class="icon emit-icon" aria-hidden="true">
-            <use href="#i-printer"></use>
-          </svg>
-          <div>
-            <p class="emit-kicker">Emissão de documento</p>
-            <h3>Imprimir ou exportar PDF</h3>
-          </div>
-        </div>
-        <button class="emit-close" type="button" data-emit-close aria-label="Fechar">
-          <svg class="icon" aria-hidden="true"><use href="#i-alert"></use></svg>
-        </button>
-      </div>
-
-      <div class="emit-body">
-        <!-- Destino -->
-        <fieldset class="emit-fieldset">
-          <legend><span class="emit-legend-icon"><svg class="icon" aria-hidden="true"><use href="#i-file"></use></svg></span>Destino</legend>
-          <div class="emit-option emit-option--dest" data-dest="print">
-            <input type="radio" name="emit-dest" value="print" id="dest-print" checked />
-            <label for="dest-print">
-              <strong>Imprimir</strong>
-              <span>Abre o diálogo de impressão do navegador em A4 retrato</span>
-            </label>
-            <div class="emit-check"></div>
-          </div>
-          <div class="emit-option emit-option--dest" data-dest="pdf">
-            <input type="radio" name="emit-dest" value="pdf" id="dest-pdf" />
-            <label for="dest-pdf">
-              <strong>Baixar PDF</strong>
-              <span>Gera um arquivo PDF para download, uma página por slide</span>
-            </label>
-            <div class="emit-check"></div>
-          </div>
-        </fieldset>
-
-        <!-- Escopo -->
-        <fieldset class="emit-fieldset">
-          <legend><span class="emit-legend-icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"></use></svg></span>Escopo</legend>
-          <div class="emit-option emit-option--scope" data-scope="all">
-            <input type="radio" name="emit-scope" value="all" id="scope-all" checked />
-            <label for="scope-all">
-              <strong>Todas as páginas</strong>
-              <span>Emite todos os slides da apresentação</span>
-            </label>
-            <div class="emit-check"></div>
-          </div>
-          <div class="emit-option emit-option--scope" data-scope="custom">
-            <input type="radio" name="emit-scope" value="custom" id="scope-custom" />
-            <label for="scope-custom">
-              <strong>Páginas específicas</strong>
-              <span>Escolha quais slides deseja emitir</span>
-            </label>
-            <div class="emit-check"></div>
-          </div>
-
-          <div class="emit-pages" id="emit-pages">
-            <p class="emit-pages-hint">Marque os slides que deseja incluir na emissão:</p>
-            <div class="emit-page-grid" id="emit-page-list"></div>
-          </div>
-        </fieldset>
-
-        <!-- Preview / resumo -->
-        <div class="emit-summary" id="emit-summary">
-          <div class="emit-summary-row">
-            <span class="emit-summary-label">Destino</span>
-            <span class="emit-summary-value" id="summary-dest">Imprimir</span>
-          </div>
-          <div class="emit-summary-row">
-            <span class="emit-summary-label">Escopo</span>
-            <span class="emit-summary-value" id="summary-scope">Todas as páginas</span>
-          </div>
-          <div class="emit-summary-row emit-summary-row--eta">
-            <span class="emit-summary-label">Tempo estimado</span>
-            <span class="emit-summary-value" id="summary-eta">—</span>
-          </div>
-          <div class="emit-summary-row">
-            <span class="emit-summary-label">Orientação</span>
-            <span class="emit-summary-value">Paisagem (A4 horizontal)</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="emit-foot">
-        <button class="emit-btn emit-btn--ghost" type="button" data-emit-close>Cancelar</button>
-        <button class="emit-btn emit-btn--emit" type="button" id="emit-confirm">
-          Emitir documento
-          <svg class="icon emit-btn-icon" aria-hidden="true"><use href="#i-arrow"></use></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script src="assets/js/webslides.js"></script>
   <script src="assets/js/deck.js"></script>
-
-  <!-- Bibliotecas para exportação direta de PDF (html2canvas + jsPDF) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 
 </html>
