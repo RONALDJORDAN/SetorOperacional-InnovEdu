@@ -712,6 +712,31 @@ kbd {
   margin-bottom: 3.2rem;
 }
 
+/* Calendar slides: tighter head spacing */
+.month-nov .slide-head,
+.month-dec .slide-head,
+.month-jan .slide-head {
+  margin-bottom: 2rem;
+}
+
+.month-nov .slide-head .lead,
+.month-dec .slide-head .lead,
+.month-jan .slide-head .lead {
+  font-size: 1.35rem;
+  line-height: 1.55;
+}
+
+/* POP slides: tighter head spacing */
+.month-nov + .slide--paper .slide-head,
+.slide--paper[data-section="Módulo 2 · POP"] .slide-head {
+  margin-bottom: 2.4rem;
+}
+
+.slide--paper[data-section="Módulo 2 · POP"] .slide-head .lead {
+  font-size: 1.3rem;
+  line-height: 1.5;
+}
+
 .kicker {
   display: flex;
   align-items: center;
@@ -2582,6 +2607,770 @@ kbd {
 }
 
 /* --------------------------------------------------------------------------
+   MÓDULO 2 · POP — DIVISOR E CONTEÚDO
+   -------------------------------------------------------------------------- */
+.module-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at 82% 0%, rgba(255, 59, 158, .18) 0%, transparent 48%);
+  pointer-events: none;
+}
+
+.module-wrap {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.module-head {
+  max-width: 900px;
+  margin: 0 auto 2.4rem;
+}
+
+.module-head .kicker {
+  justify-content: center;
+  color: var(--magenta);
+}
+
+.module-head .kicker::before {
+  background: currentColor;
+}
+
+.module-head h2 {
+  font-size: clamp(4rem, 6vw, 5.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  color: #F8FAFC;
+  margin: 0 0 1rem;
+  background: linear-gradient(135deg, #fff 0%, var(--lilac) 50%, var(--magenta) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.module-head .lead {
+  font-size: 1.8rem;
+  color: var(--dark-muted);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.module-author {
+  margin-top: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--lilac);
+  letter-spacing: .02em;
+}
+
+.module-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6rem;
+  margin-top: 3.2rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.module-card {
+  position: relative;
+  padding: 2.4rem 2rem;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .05);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.module-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--magenta) 100%);
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, .25);
+  background: rgba(255, 255, 255, .08);
+}
+
+.module-card-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--magenta) 100%);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+}
+
+.module-card h3 {
+  margin: 0 0 .6rem;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #F8FAFC;
+}
+
+.module-card-meta {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--dark-muted);
+}
+
+/* POP Content Grids */
+.pop-grid-2,
+.pop-grid-3 {
+  display: grid;
+  gap: 2.4rem;
+  margin-top: 1.2rem;
+}
+
+.pop-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pop-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.pop-block {
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.pop-block h3 {
+  margin: 0 0 1.4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.pop-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.pop-list li {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.pop-list strong {
+  color: var(--ink);
+}
+
+.pop-list--numbered {
+  counter-reset: pop-item;
+}
+
+.pop-list--numbered li {
+  position: relative;
+  padding-left: 3.2rem;
+}
+
+.pop-list--numbered li::before {
+  counter-increment: pop-item;
+  content: counter(pop-item) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brand);
+  width: 2.4rem;
+  text-align: right;
+  padding-right: .8rem;
+}
+
+.pop-callout {
+  padding: 1.6rem;
+  border-radius: var(--radius-sm);
+  background: var(--brand-soft);
+  border-left: 4px solid var(--brand);
+  margin: 0 0 2rem;
+}
+
+.pop-callout p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.pop-footer-note {
+  margin-top: 2.4rem;
+  padding: 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* MÓDULO 3 · CALENDÁRIO EM GRADE (DIAS) */
+.cal-grid-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(100px, 1fr));
+  min-width: 700px;
+}
+
+.cal-header {
+  display: contents;
+}
+
+.cal-day-name {
+  padding: .7rem .3rem;
+  font-family: var(--font-head);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--muted-2);
+  background: var(--paper);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cal-day-name:last-child { border-right: none; }
+
+.cal-day {
+  position: relative;
+  min-height: 85px;
+  padding: .4rem .3rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+  transition: background .15s ease;
+}
+
+.cal-day:hover { background: var(--brand-soft); }
+
+.cal-day:nth-child(7n) { border-right: none; }
+
+.cal-day.other-month {
+  color: var(--muted-2);
+  background: var(--paper);
+}
+
+.cal-day.other-month:hover { background: var(--paper); }
+
+.cal-day-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cal-day.today .cal-day-num {
+  background: var(--brand);
+  color: #fff;
+}
+
+.cal-events {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  margin-top: .3rem;
+}
+
+.cal-event {
+  display: inline-block;
+  padding: .1rem .4rem;
+  border-radius: 999px;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.cal-event--brand { background: var(--brand-soft); color: var(--brand-dark); }
+.cal-event--teal { background: var(--teal-soft); color: var(--teal-dark); }
+.cal-event--amber { background: var(--amber-soft); color: var(--amber-dark); }
+.cal-event--coral { background: var(--coral-soft); color: var(--coral-dark); }
+.cal-event--magenta { background: var(--teal-soft); color: var(--teal-dark); }
+.cal-event--gray { background: var(--paper); color: var(--muted); border: 1px solid var(--line); }
+
+.cal-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.cal-legend-item {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .9rem;
+  color: var(--ink-2);
+}
+
+.cal-legend-item .cal-event {
+  flex-shrink: 0;
+  padding: .15rem .5rem;
+}
+
+.cal-note {
+  margin-top: .8rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .9rem;
+  color: var(--muted-2);
+}
+
+.cal-note .icon { width: 1.2rem; height: 1.2rem; color: var(--amber-dark); }
+
+/* Quarter overview cards */
+.quarter-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+  margin-top: 2.4rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quarter-month {
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .05);
+  text-align: center;
+  transition: transform .2s ease, border-color .2s ease;
+}
+
+.quarter-month:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, .25);
+}
+
+.quarter-month-num {
+  display: inline-block;
+  font-family: var(--font-head);
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -.06em;
+  margin-bottom: .8rem;
+  opacity: .25;
+}
+
+.quarter-month strong {
+  display: block;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #F8FAFC;
+  margin-bottom: .4rem;
+}
+
+.quarter-month > span {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--dark-muted);
+  margin-bottom: 1.2rem;
+}
+
+.quarter-highlights {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  text-align: center;
+}
+
+.quarter-highlights li {
+  font-size: 1.1rem;
+  color: var(--dark-muted);
+}
+
+/* Participant role + note */
+.participant-note {
+  display: block;
+  margin-top: .1rem;
+  font-size: .9rem;
+  color: var(--muted-2);
+  font-weight: 400;
+}
+
+.participant-role {
+  display: block;
+  margin-top: .3rem;
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+}
+
+/* Module divider responsive */
+.module-sub {
+  margin-top: .8rem;
+  font-size: 1.3rem;
+  color: var(--lilac);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   CATEGORIAS · SUMÁRIO DETALHADO
+   -------------------------------------------------------------------------- */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2.4rem;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2.2rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-hover);
+}
+
+.category-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 12px;
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+}
+
+.category-icon .icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.category-card h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.category-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.category-list li {
+  font-size: 1.1rem;
+  line-height: 1.45;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.category-list li::before {
+  content: '';
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  background: var(--brand);
+  flex-shrink: 0;
+}
+
+/* Ícones educacionais para slides com pouco conteúdo */
+.edu-icon {
+  position: absolute;
+  opacity: .06;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.edu-icon--brand { color: var(--brand); }
+.edu-icon--magenta { color: var(--magenta); }
+.edu-icon--lilac { color: var(--lilac); }
+.edu-icon--coral { color: var(--coral-brand); }
+
+/* Quarter overview cards - ícones educacionais */
+.quarter-month {
+  position: relative;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   RESUMO OPERACIONAL POR MÊS
+   -------------------------------------------------------------------------- */
+.month-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.month-summary {
+  position: relative;
+  padding: 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.month-summary-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.month-summary-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--magenta) 100%);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.month-summary-head div {
+  min-width: 0;
+}
+
+.month-summary-head h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.month-summary-period {
+  display: block;
+  margin-top: .2rem;
+  font-size: .95rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+}
+
+.month-summary-list {
+  margin: 0 0 1.4rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.month-summary-list li {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+
+.month-summary-list strong {
+  color: var(--ink);
+}
+
+.month-summary-responsible {
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.month-summary-responsible .label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   ENCERRAMENTO
+   -------------------------------------------------------------------------- */
+.closing-wrap {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.closing-main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.closing-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--magenta);
+}
+
+.closing-eyebrow::before {
+  content: '';
+  width: 2.4rem;
+  height: 2px;
+  background: currentColor;
+}
+
+.closing-main h1 {
+  font-size: clamp(4rem, 6vw, 5.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  margin: 0 0 1rem;
+  background: linear-gradient(135deg, #fff 0%, var(--lilac) 50%, var(--magenta) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.closing-lead {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--dark-muted);
+  margin: 0 0 2.4rem;
+}
+
+.closing-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.6rem;
+  margin-bottom: 2.4rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.closing-step {
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, .05);
+  text-align: left;
+}
+
+.closing-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--magenta) 100%);
+  color: #fff;
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.closing-step h3 {
+  margin: 0 0 .6rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+.closing-step p {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--dark-muted);
+}
+
+.closing-foot {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  padding-top: 2rem;
+}
+
+.closing-contact {
+  margin: 0 0 .4rem;
+  font-size: 1.2rem;
+  color: var(--dark-muted);
+}
+
+.closing-copy {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--dark-muted);
+}
+
+.closing-copy {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: var(--dark-muted);
+}
+
+/* --------------------------------------------------------------------------
    25. RESPONSIVO
    -------------------------------------------------------------------------- */
 @media (max-width: 1100px) {
@@ -3023,6 +3812,102 @@ kbd {
 
   .closing-foot p {
     font-size: 1.15rem;
+  }
+
+  /* Módulo 2 · POP */
+  .module-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .module-card {
+    padding: 1.8rem 1.5rem;
+  }
+
+  .module-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .pop-grid-2,
+  .pop-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .pop-block {
+    padding: 1.5rem;
+  }
+
+  .pop-block h3 {
+    font-size: 1.4rem;
+  }
+
+  .pop-list li {
+    font-size: 1.05rem;
+  }
+
+  .pop-list--numbered li {
+    padding-left: 2.8rem;
+  }
+
+  .pop-callout {
+    padding: 1.2rem;
+  }
+
+  .pop-callout p {
+    font-size: 1.1rem;
+  }
+
+  .pop-footer-note {
+    font-size: .9rem;
+  }
+
+  /* Módulo 3 · Calendário */
+  .quarter-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .quarter-month {
+    padding: 1.5rem;
+  }
+
+  .quarter-month-num {
+    font-size: 3.6rem;
+  }
+
+  .cal-grid {
+    min-width: 700px;
+  }
+
+  .cal-day {
+    min-height: 90px;
+    padding: .4rem .3rem;
+  }
+
+  .cal-day-num {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .cal-event {
+    font-size: .7rem;
+    padding: .1rem .4rem;
+  }
+
+  .cal-legend {
+    gap: .8rem;
+  }
+
+  .cal-legend-item {
+    font-size: .9rem;
+  }
+
+  /* Participant note/role */
+  .participant-note {
+    font-size: .8rem;
+  }
+
+  .participant-role {
+    font-size: .8rem;
   }
 }
 

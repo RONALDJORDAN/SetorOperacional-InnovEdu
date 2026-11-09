@@ -2,7 +2,7 @@
 
 Apresentação em HTML (WebSlides) para o planejamento operacional das avaliações impressas e digitais.
 
-**Estrutura base:** 17 slides prontos para receber os dados aos poucos.
+**Estrutura base:** 24 slides prontos para receber os dados aos poucos.
 
 ---
 
@@ -28,7 +28,7 @@ Também é possível navegar por swipe em telas de toque.
 
 ## O que já está pronto
 
-- 17 slides com hierarquia visual e textos-base.
+- 24 slides com hierarquia visual e textos-base.
 - Navegação por teclado, swipe e botões.
 - Barra de progresso e contador de slides.
 - Índice navegável com todos os slides.
@@ -43,7 +43,7 @@ Também é possível navegar por swipe em telas de toque.
 
 ```
 Apresentação/
-├── index.html                 # os 17 slides
+├── index.html                 # os 24 slides
 ├── assets/
 │   ├── css/
 │   │   ├── webslides.css      # base WebSlides 1.5.0
@@ -106,27 +106,34 @@ Alterar esses valores atualiza o deck inteiro. A tipografia usa **Poppins** nos 
 
 ---
 
-## Mapa dos 17 slides
+## Mapa dos 24 slides
 
 | # | Slide | O que preencher |
 |---|---|---|
 | 01 | Capa | Marca, período, versão e texto de apoio |
-| 02 | Sumário executivo | Mensagem central e 3 prioridades |
-| 03 | Contexto e objetivos | Escopo, responsabilidades e objetivos |
-| 04 | Balanço do trimestre anterior | Métricas, o que funcionou e o que evoluir |
-| 05 | Metas e indicadores | Metas e forma de medição |
-| 06 | Calendário macro | Semanas, marcos e premissas |
-| 07 | Novembro 2026 | Foco, entregas e marco do mês |
-| 08 | Dezembro 2026 | Foco, entregas e marco do mês |
-| 09 | Janeiro 2027 | Foco, entregas e marco do mês |
-| 10 | Portfólio de avaliações | Avaliações, modelos, públicos, janelas e status |
-| 11 | Operação impressa | Fluxo, prazos e regras críticas |
-| 12 | Operação digital | Fluxo, prazos e regras críticas |
-| 13 | Logística e suprimentos | Itens do kit e responsáveis |
-| 14 | Pessoas e responsabilidades | Matriz RACI e pontos focais |
-| 15 | Riscos e contingências | Riscos, severidade e ações |
-| 16 | Governança e rituais | Rituais, escalonamento e canais |
-| 17 | Próximos passos | Decisões, prazos e chamada final |
+| 02 | Sumário da apresentação | Mensagem central e 3 prioridades |
+| 03 | Sumário detalhado | Todas as categorias da apresentação |
+| 04 | Setor Operacional · Definição | Definição, escopo e participantes da frente |
+| 05 | Preparação & logística | Pilar 01 — Materiais didáticos e avaliações impressas |
+| 06 | Tablets | Pilar 02 — Gestão, provisionamento e homologação |
+| 07 | TACE — Tablet Auditor & Configurator | Ferramenta própria para automação de configuração de tablets |
+| 08 | Laboratórios móveis | Pilar 03 — Hardware, infraestrutura, entrega e suporte |
+| 09 | Suporte tecnológico | Pilar 04 — Intervenções de sistema e desenvolvimento |
+| 10 | Atendimento municipal | Pilar 05 — Chamados, relacionamento e BI |
+| 11 | Módulo 2 · POP (divisor) | Título, autor e 4 cards dos procedimentos |
+| 12 | POP · 1.1 Triagem + 1.2 Encaminhamento | Recebimento, validação, prazos, gráfica, separação |
+| 13 | POP · 971.3 Etiquetagem + 1.4 Kits + 1.5 Empacotamento | Etiquetas, kits, contingência, lacração |
+| 14 | POP · 2.1 Validação Digital + 2.2 Documentação | Conferência localidade, insumos digitais, planejamento |
+| 15 | POP · 2.3 Configuração + 2.4 Reserva | Provisionamento, auditoria, carga, redimensionamento |
+| 16 | POP · Protocolo Preparação Geral | Pessoal, rádios, Starlink, checklist final |
+| 17 | POP · 4.1 Pré-Aplicação + 4.2 Conduta | Auditoria saída, pontualidade, custódia, rondas |
+| 18 | POP · 4.3 Encerramento e Sincronização | Recolhimento, upload, comunicação INNOV, inventário |
+| 19 | Módulo 3 · Planejamento Trimestral (divisor) | Visão geral do trimestre e 3 cards dos meses |
+| 20 | Novembro 2026 | Calendário em grade com eventos por dia |
+| 21 | Dezembro 2026 | Calendário em grade com eventos por dia |
+| 22 | Janeiro 2027 | Calendário em grade com eventos por dia |
+| 23 | Resumo operacional por mês | Síntese de entregas e responsáveis por mês |
+| 24 | Encerramento | Próximos passos e chamada final |
 
 ---
 
