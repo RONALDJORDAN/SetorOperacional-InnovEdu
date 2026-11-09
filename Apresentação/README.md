@@ -1,6 +1,6 @@
 # Planejamento trimestral — Novembro/2026 a Janeiro/2027
 
-Apresentação em HTML (WebSlides) para o planejamento operacional das avaliações impressas e digitais da SEMED.
+Apresentação em HTML (WebSlides) para o planejamento operacional das avaliações impressas e digitais.
 
 **Estrutura base:** 17 slides prontos para receber os dados aos poucos.
 
@@ -94,13 +94,15 @@ Se mudar o nome de um slide, atualize `data-title` e `data-section`.
 Os tokens ficam no início de `assets/css/deck.css`:
 
 ```css
---brand: #6B32D9;
---teal: #0D9488;
---amber: #D97706;
+--brand: #6B25D6;      /* roxo elétrico */
+--brand-2: #6428D4;
+--lilac: #A755F7;      /* lilás */
+--magenta: #FF3B9E;    /* magenta */
+--coral-brand: #F87185; /* coral */
 --ink: #0F172A;
 ```
 
-Alterar esses valores atualiza o deck inteiro.
+Alterar esses valores atualiza o deck inteiro. A tipografia usa **Poppins** nos títulos e **Inter** no corpo, carregadas via Google Fonts no `index.html`.
 
 ---
 
@@ -140,12 +142,12 @@ Alterar esses valores atualiza o deck inteiro.
 ## Base e créditos
 
 - **WebSlides 1.5.0** — Jose Luís Antúnez e contribuidores (MIT).
-- **Tipografia** — Plus Jakarta Sans e Inter (Google Fonts).
-- **Tokens visuais** — inspirados no design system do InnovStock (`#6B32D9`, `#0F172A`, `#F8FAFC`).
-- **Conteúdo operacional** — baseado no POP INNOV (avaliações impressas e digitais).
+- **Tipografia** — Poppins e Inter (Google Fonts).
+- **Tokens visuais** — paleta da identidade InnovEdu (`#6B25D6`, `#FF3B9E`, `#F87185`, `#A755F7`, `#FFFFFF`).
+- **Conteúdo operacional** — baseado no POP InnovEdu (avaliações impressas e digitais).
 
 ---
 
 ## Observação
 
-As datas de semana e as metas são uma **proposta de trabalho**. Valide o calendário, o escopo e os indicadores com a SEMED antes de congelar a versão final.
+As datas de semana e as metas são uma **proposta de trabalho**. Valide o calendário, o escopo e os indicadores com a rede antes de congelar a versão final.

@@ -134,10 +134,41 @@
   buildIndex();
   totalEl.textContent = pad(total);
 
-  // Atualiza o chrome a cada troca de slide.
+  // Transição de tela: entrada lateral suave a cada troca de slide.
+  var lastSlide = null;
+  var enterTimer = null;
+
+  function animateSlide(section, forward) {
+    section.classList.remove('deck-enter-forward', 'deck-enter-backward');
+    void section.offsetWidth; // reinicia a animação
+    section.classList.add(forward ? 'deck-enter-forward' : 'deck-enter-backward');
+
+    clearTimeout(enterTimer);
+    enterTimer = setTimeout(function () {
+      section.classList.remove('deck-enter-forward', 'deck-enter-backward');
+    }, 800);
+  }
+
+  // Atualiza o chrome e a transição a cada troca de slide.
   // O WebSlides dispara o evento no próprio elemento #webslides (sem bubble).
-  document.getElementById('webslides').addEventListener('ws:slide-change', function (event) {
-    setUI(event.detail.currentSlide);
+  var webslidesEl = document.getElementById('webslides');
+
+  webslidesEl.addEventListener('ws:slide-change', function (event) {
+    var current = event.detail.currentSlide;
+    var section = slides[current - 1];
+
+    if (section && lastSlide !== null && current !== lastSlide) {
+      animateSlide(section, current > lastSlide);
+    }
+
+    lastSlide = current;
+    setUI(current);
+  });
+
+  webslidesEl.addEventListener('animationend', function (event) {
+    if (event.target.parentElement === webslidesEl) {
+      event.target.classList.remove('deck-enter-forward', 'deck-enter-backward');
+    }
   });
 
   // Inicializa o WebSlides.
@@ -150,6 +181,29 @@
   });
 
   window.ws = ws;
+
+  // Impressão/PDF sempre na ordem original do deck. O WebSlides reordena as
+  // seções no DOM durante a navegação; restauramos a ordem antes de imprimir
+  // e devolvemos o estado anterior ao fechar a janela de impressão.
+  var printOrderBackup = null;
+
+  function applySlideOrder(order) {
+    order.forEach(function (section) {
+      webslidesEl.appendChild(section);
+    });
+  }
+
+  window.addEventListener('beforeprint', function () {
+    printOrderBackup = Array.prototype.slice.call(webslidesEl.children);
+    applySlideOrder(slides);
+  });
+
+  window.addEventListener('afterprint', function () {
+    if (printOrderBackup) {
+      applySlideOrder(printOrderBackup);
+      printOrderBackup = null;
+    }
+  });
 
   // Se a URL já abriu em um slide específico (#slide=N), respeita a posição.
   var initial = 1;
