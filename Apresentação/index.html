@@ -427,6 +427,12 @@
            Editar: status, meta e progresso.
            ============================================================ -->
       <section class="slide slide--white" data-title="Tablets" data-section="Setor Operacional">
+        <span class="edu-icon edu-icon--brand"
+          style="top: 14rem; right: 14rem; width: 16rem; height: 16rem; font-size: 14rem;"></span>
+        <span class="edu-icon edu-icon--magenta"
+          style="top: 28rem; left: 12rem; width: 10rem; height: 10rem; font-size: 9rem; opacity: .04;"></span>
+        <span class="edu-icon edu-icon--lilac"
+          style="bottom: 14rem; right: 10rem; width: 12rem; height: 12rem; font-size: 11rem; opacity: .05;"></span>
         <div class="wrap">
           <div class="slide-head">
             <div class="head-row">
@@ -440,28 +446,67 @@
             </div>
           </div>
 
-          <div class="cols-3 tablet-metrics">
-            <article class="card metric-card">
-              <span class="metric-value">465</span>
-              <span class="metric-label">Tablets preparados</span>
-              <span class="metric-note">Status atual da base homologada para campo.</span>
+          <div class="tablet-overview">
+            <article class="card tablet-card">
+              <span class="tablet-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-tablet"></use>
+                </svg></span>
+              <div class="tablet-content">
+                <span class="metric-value">465</span>
+                <span class="metric-label">Tablets preparados</span>
+                <span class="metric-note">Status atual da base homologada para campo.</span>
+              </div>
             </article>
-            <article class="card metric-card">
-              <span class="metric-value">500</span>
-              <span class="metric-label">Meta imediata</span>
-              <span class="metric-note">Aparelhos homologados e prontos para aplicação.</span>
+            <article class="card tablet-card">
+              <span class="tablet-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-target"></use>
+                </svg></span>
+              <div class="tablet-content">
+                <span class="metric-value">500</span>
+                <span class="metric-label">Meta imediata</span>
+                <span class="metric-note">Aparelhos homologados e prontos para aplicação.</span>
+              </div>
             </article>
-            <article class="card metric-card">
-              <span class="metric-value">93%</span>
-              <span class="metric-label">Da meta alcançada</span>
-              <span class="metric-note">Faltam 35 aparelhos para completar a meta.</span>
+            <article class="card tablet-card tablet-card--highlight">
+              <span class="tablet-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-check"></use>
+                </svg></span>
+              <div class="tablet-content">
+                <span class="metric-value">93%</span>
+                <span class="metric-label">Da meta alcançada</span>
+                <span class="metric-note">Faltam 35 aparelhos para completar a meta.</span>
+              </div>
             </article>
           </div>
 
-          <div class="goal-progress">
+          <div class="goal-progress tablet-goal">
             <div class="goal-progress-head"><span>Progresso de homologação</span><strong>465 de 500</strong></div>
             <div class="goal-progress-track"><span class="goal-progress-bar" style="width:93%"></span></div>
             <p class="goal-progress-note">Meta: atingir 500 tablets homologados e prontos no menor tempo possível.</p>
+          </div>
+
+          <div class="device-registry">
+            <p class="device-registry-label">Registro de Patrimônio dos Dispositivos</p>
+            <div class="device-grid">
+              <article class="device-card">
+                <div class="device-field">
+                  <span class="device-field-label">Patrimônio</span>
+                  <span class="device-field-value">INV0001</span>
+                  <span class="device-field-note">Formato: INV0 + número sequencial (localizado na parte de trás do
+                    aparelho)</span>
+                </div>
+                <div class="device-field">
+                  <span class="device-field-label">Número de Série</span>
+                  <span class="device-field-value">PV7-2026-0001</span>
+                  <span class="device-field-note">Série de fábrica do Positivo Vision 7</span>
+                </div>
+                <div class="device-field">
+                  <span class="device-field-label">Endereço MAC</span>
+                  <span class="device-field-value">AA:BB:CC:DD:EE:FF</span>
+                  <span class="device-field-note">Identificador de rede do dispositivo</span>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -470,7 +515,8 @@
            SLIDE 06 · PILAR 02 · TACE (SEGUNDA PÁGINA TABLETS)
            Editar: TACE — Tablet Auditor & Configurator for Education.
            ============================================================ -->
-      <section class="slide slide--white" data-title="TACE — Tablet Auditor & Configurator" data-section="Setor Operacional">
+      <section class="slide slide--white" data-title="TACE — Tablet Auditor & Configurator"
+        data-section="Setor Operacional">
         <div class="wrap">
           <div class="slide-head">
             <div class="head-row">
@@ -486,17 +532,23 @@
 
           <div class="cols-2">
             <article class="card pillar-card">
-              <span class="icon-box icon-box--brand pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-tablet"></use></svg></span>
+              <span class="icon-box icon-box--brand pillar-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-tablet"></use>
+                </svg></span>
               <h3>O que é o TACE</h3>
               <p>O <strong>TACE — Tablet Auditor &amp; Configurator for Education</strong> é uma ferramenta interna da
                 InnovEdu criada com o propósito de acelerar e automatizar o processo de execução de configurações nos
-                tablets usados nas avaliações. Código-fonte disponível em <a href="https://github.com/RONALDJORDAN/TACE" target="_blank" rel="noopener">github.com/RONALDJORDAN/TACE</a>.</p>
+                tablets usados nas avaliações. Código-fonte disponível em <a href="https://github.com/RONALDJORDAN/TACE"
+                  target="_blank" rel="noopener">github.com/RONALDJORDAN/TACE</a>.</p>
             </article>
             <article class="card pillar-card">
-              <span class="icon-box icon-box--teal pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg></span>
+              <span class="icon-box icon-box--teal pillar-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></span>
               <h3>Objetivo de criação</h3>
               <p>Automatizar a configuração dos dispositivos, reduzir a intervenção manual e eliminar erros operacionais
-                antes das aplicações, transformando cada tablet em uma ferramenta própria e confiável para avaliações.</p>
+                antes das aplicações, transformando cada tablet em uma ferramenta própria e confiável para avaliações.
+              </p>
             </article>
           </div>
 
@@ -537,7 +589,9 @@
           </div>
 
           <div class="callout callout--brand">
-            <span class="callout-icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg></span>
+            <span class="callout-icon"><svg class="icon" aria-hidden="true">
+                <use href="#i-shield"></use>
+              </svg></span>
             <div><strong>Resultado operacional</strong>
               <p>Com o TACE, a configuração que antes levava um dia inteiro agora é concluída em um único turno, com
                 rastreabilidade total de cada dispositivo e zero impacto nas aplicações.</p>
@@ -551,6 +605,12 @@
            Editar: etapas de montagem, configuração e entrega.
            ============================================================ -->
       <section class="slide slide--paper" data-title="Laboratórios móveis" data-section="Setor Operacional">
+        <span class="edu-icon edu-icon--brand"
+          style="top: 14rem; right: 14rem; width: 16rem; height: 16rem; font-size: 14rem;"></span>
+        <span class="edu-icon edu-icon--magenta"
+          style="top: 28rem; left: 12rem; width: 10rem; height: 10rem; font-size: 9rem; opacity: .04;"></span>
+        <span class="edu-icon edu-icon--lilac"
+          style="bottom: 14rem; right: 10rem; width: 12rem; height: 12rem; font-size: 11rem; opacity: .05;"></span>
         <div class="wrap">
           <div class="slide-head">
             <div class="head-row">
@@ -566,14 +626,23 @@
 
           <div class="flow flow--3">
             <article class="flow-step">
+              <span class="flow-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-lab"></use>
+                </svg></span>
               <h3>Montagem e plotagem</h3>
               <p>Montagem física da estrutura e aplicação de plotagem/identificação visual.</p>
             </article>
             <article class="flow-step">
+              <span class="flow-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-refresh"></use>
+                </svg></span>
               <h3>Configuração técnica</h3>
               <p>Instalação de softwares, rotinas de rede e homologação dos equipamentos internos.</p>
             </article>
             <article class="flow-step">
+              <span class="flow-icon"><svg class="icon" aria-hidden="true">
+                  <use href="#i-truck"></use>
+                </svg></span>
               <h3>Entrega e logística reversa</h3>
               <p>Envio, entrega final nas redes municipais e suporte presencial/de bancada.</p>
             </article>
@@ -581,7 +650,7 @@
 
           <div class="callout callout--brand">
             <span class="callout-icon"><svg class="icon" aria-hidden="true">
-                <use href="#i-truck"></use>
+                <use href="#i-school"></use>
               </svg></span>
             <div><strong>Do galpão à escola</strong>
               <p>O pilar cobre o ciclo completo do laboratório móvel: montar, configurar, entregar e dar suporte.</p>
@@ -805,7 +874,7 @@
 
           <div class="pop-grid-3">
             <div class="pop-block">
-              <h3>1.3 Gestão de Etiquetagem</h3>
+              <h3>g1.3 Gestão de Etiquetagem</h3>
               <ul class="pop-list">
                 <li><strong>Etiquetas de Turma:</strong> Emissão via sistema das etiquetas de identificação
                   individualizadas para todas as turmas cadastradas.</li>
@@ -1494,9 +1563,12 @@
               </div>
               <ul class="month-summary-list">
                 <li><strong>Semana 1 (09–13):</strong> Kickoff com a rede, validação de escopo e pontos focais.</li>
-                <li><strong>Semana 2 (16–20):</strong> Diagnóstico e dimensionamento de volume por escola/turma/modelo.</li>
-                <li><strong>Semana 3 (23–27):</strong> Compras de insumos, configuração de tablets, preparação de kits impressos.</li>
-                <li><strong>Semana 4 (30–04):</strong> Checklists finais, autenticação prévia, <strong>início do Ciclo 1</strong>.</li>
+                <li><strong>Semana 2 (16–20):</strong> Diagnóstico e dimensionamento de volume por escola/turma/modelo.
+                </li>
+                <li><strong>Semana 3 (23–27):</strong> Compras de insumos, configuração de tablets, preparação de kits
+                  impressos.</li>
+                <li><strong>Semana 4 (30–04):</strong> Checklists finais, autenticação prévia, <strong>início do Ciclo
+                    1</strong>.</li>
               </ul>
               <div class="month-summary-responsible">
                 <span class="label">Responsáveis:</span>
@@ -1513,14 +1585,18 @@
                 </div>
               </div>
               <ul class="month-summary-list">
-                <li><strong>Semana 1 (07–11):</strong> Aplicações do Ciclo 1 (impresso + digital) + sincronização diária.</li>
+                <li><strong>Semana 1 (07–11):</strong> Aplicações do Ciclo 1 (impresso + digital) + sincronização
+                  diária.</li>
                 <li><strong>Semana 2 (14–18):</strong> Continuidade das aplicações, conferência de atas e presença.</li>
-                <li><strong>Semana 3 (21–25):</strong> Fechamento operacional, inventário de equipamentos, devolução de materiais.</li>
-                <li><strong>Semana 4 (28–31):</strong> Recesso escolar, plantão de suporte, planejamento do retorno de janeiro.</li>
+                <li><strong>Semana 3 (21–25):</strong> Fechamento operacional, inventário de equipamentos, devolução de
+                  materiais.</li>
+                <li><strong>Semana 4 (28–31):</strong> Recesso escolar, plantão de suporte, planejamento do retorno de
+                  janeiro.</li>
               </ul>
               <div class="month-summary-responsible">
                 <span class="label">Responsáveis:</span>
-                <span>Tablets (Jordan Ronald) · Laboratórios (Matheus Lucas) · Atendimento (Jordan, Alicia, Kristoffe)</span>
+                <span>Tablets (Jordan Ronald) · Laboratórios (Matheus Lucas) · Atendimento (Jordan, Alicia,
+                  Kristoffe)</span>
               </div>
             </article>
 
@@ -1533,14 +1609,19 @@
                 </div>
               </div>
               <ul class="month-summary-list">
-                <li><strong>Semana 1 (04–08):</strong> Retorno das aulas, alinhamento com escolas, preparação Ciclo 2.</li>
-                <li><strong>Semana 2 (11–15):</strong> <strong>Ciclo 2</strong> — aplicações, suporte contínuo, sincronização.</li>
-                <li><strong>Semana 3 (18–22):</strong> Consolidação de resultados, leitura pedagógica, devolutivas às redes.</li>
-                <li><strong>Semana 4 (25–29):</strong> Prestação de contas do trimestre, relatório final, atas, planejamento próximo trimestre.</li>
+                <li><strong>Semana 1 (04–08):</strong> Retorno das aulas, alinhamento com escolas, preparação Ciclo 2.
+                </li>
+                <li><strong>Semana 2 (11–15):</strong> <strong>Ciclo 2</strong> — aplicações, suporte contínuo,
+                  sincronização.</li>
+                <li><strong>Semana 3 (18–22):</strong> Consolidação de resultados, leitura pedagógica, devolutivas às
+                  redes.</li>
+                <li><strong>Semana 4 (25–29):</strong> Prestação de contas do trimestre, relatório final, atas,
+                  planejamento próximo trimestre.</li>
               </ul>
               <div class="month-summary-responsible">
                 <span class="label">Responsáveis:</span>
-                <span>Coordenação (Emelly Kelly) · Suporte (Alicia Fernanda) · Atendimento (Jordan, Alicia, Kristoffe)</span>
+                <span>Coordenação (Emelly Kelly) · Suporte (Alicia Fernanda) · Atendimento (Jordan, Alicia,
+                  Kristoffe)</span>
               </div>
             </article>
           </div>
@@ -1550,7 +1631,8 @@
       <!-- ============================================================
            SLIDE 22 · ENCERRAMENTO
            ============================================================ -->
-      <section class="slide slide--closing slide--dark" data-theme="dark" data-title="Encerramento" data-section="Encerramento">
+      <section class="slide slide--closing slide--dark" data-theme="dark" data-title="Encerramento"
+        data-section="Encerramento">
         <span class="closing-glow" aria-hidden="true"></span>
         <div class="wrap closing-wrap">
           <div class="closing-main">
@@ -1563,14 +1645,16 @@
                 <span class="closing-step-num">1</span>
                 <div>
                   <h3>Validar calendário com a rede</h3>
-                  <p>Confirmar janelas de aplicação, recesso escolar e datas de retorno com as secretarias municipais.</p>
+                  <p>Confirmar janelas de aplicação, recesso escolar e datas de retorno com as secretarias municipais.
+                  </p>
                 </div>
               </article>
               <article class="closing-step">
                 <span class="closing-step-num">2</span>
                 <div>
                   <h3>Confirmar portfólio de avaliações</h3>
-                  <p>Definir quais avaliações serão aplicadas, em qual modelo (impresso/digital) e para quais públicos.</p>
+                  <p>Definir quais avaliações serão aplicadas, em qual modelo (impresso/digital) e para quais públicos.
+                  </p>
                 </div>
               </article>
               <article class="closing-step">
@@ -1584,7 +1668,8 @@
                 <span class="closing-step-num">4</span>
                 <div>
                   <h3>Oficializar RACI e rituais</h3>
-                  <p>Publicar matriz de responsabilidades, cadência de reuniões e canais de escalação para o trimestre.</p>
+                  <p>Publicar matriz de responsabilidades, cadência de reuniões e canais de escalação para o trimestre.
+                  </p>
                 </div>
               </article>
             </div>
